@@ -1,0 +1,17 @@
+
+on:
+  workflow_dispatch
+  
+jobs:
+  test:
+    strategy:
+      matrix:
+        image: [ubuntu]
+        version: [20.04,22.04]
+    name: Test
+    runs-on: ["${{ matrix.image }}-${[ matrix.version }}"]
+
+    steps:
+      - name: Test with inputs
+        run: |
+          echo "Dumb but works"
