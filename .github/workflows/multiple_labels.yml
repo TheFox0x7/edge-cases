@@ -16,4 +16,4 @@ jobs:
     steps:
       - name: What is insert?
         run: |
-          echo "{{ toJson(insert) }}"
+          echo "${{ toJson(insert) }}"
