@@ -9,7 +9,7 @@ jobs:
         image: [ubuntu]
         version: [20.04,22.04]
     name: Test
-    runs-on: ["${{ matrix.image }}-${[ matrix.version }}"]
+    runs-on: ["self-hosted","${{ matrix.image }}","${[ matrix.version }}"]
 
     steps:
       - name: Test with inputs
