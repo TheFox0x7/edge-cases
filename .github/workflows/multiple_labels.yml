@@ -16,7 +16,7 @@ jobs:
     steps:
       - name: Test with inputs
         run: |
-          echo "${{ toJson(strategy) 
+          echo "${{ toJson(strategy) }}"
       - name: Test with inputs
         run: |
           echo "${{ toJson(inputs) }}"
