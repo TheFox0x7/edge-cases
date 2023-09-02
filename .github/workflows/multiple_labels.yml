@@ -2,16 +2,16 @@
 on:
   workflow_dispatch:
     inputs:
-        image1:
-        image2:
+      couple:
+      checks:
+
+env: 
+  key: value
   
 jobs:
   test:
-    strategy:
-      matrix:
-        image: ["${{ inputs.image1 }}", "${{ inputs.image2 }}"]
     name: Test
-    runs-on: "${{ matrix.image }}"
+    runs-on: "ubuntu-latest"
 
     steps:
       - name: Test with inputs
@@ -20,3 +20,6 @@ jobs:
       - name: Test with inputs
         run: |
           echo "${{ toJson(inputs) }}"
+      - name: Test with 2 expressions
+        run: |
+          echo "${{ toJson(inputs) }}    ${{ toJson(env) }}"
