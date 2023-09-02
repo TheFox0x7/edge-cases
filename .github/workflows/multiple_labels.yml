@@ -1,17 +1,22 @@
 
 on:
-  workflow_dispatch
+  workflow_dispatch:
+    inputs:
+        image1:
+        image2:
   
 jobs:
   test:
     strategy:
       matrix:
-        image: [ubuntu]
-        version: [20.04,22.04]
+        image: ["${{ inputs.image1 }}", "${{ inputs.image2 }}"]
     name: Test
-    runs-on: ["self-hosted","${{ matrix.image }}","${[ matrix.version }}"]
+    runs-on: "${{ matrix.image }}"
 
     steps:
       - name: Test with inputs
         run: |
-          echo "${{ toJson(strategy) }}"
+          echo "${{ toJson(strategy) 
+      - name: Test with inputs
+        run: |
+          echo "${{ toJson(inputs) }}"
