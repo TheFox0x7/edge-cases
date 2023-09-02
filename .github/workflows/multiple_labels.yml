@@ -12,14 +12,8 @@ jobs:
   test:
     name: Test
     runs-on: "ubuntu-latest"
-
+    
     steps:
-      - name: Test with inputs
+      - name: What is insert?
         run: |
-          echo "${{ toJson(strategy) }}"
-      - name: Test with inputs
-        run: |
-          echo "${{ toJson(inputs) }}"
-      - name: Test with 2 expressions
-        run: |
-          echo "${{ toJson(inputs) }}    ${{ toJson(env) }}"
+          echo "{{ toJson(insert) }}"
