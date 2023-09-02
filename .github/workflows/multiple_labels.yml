@@ -1,6 +1,6 @@
 
 on:
-  Workflow_dispatch:
+  workflow_dispatch:
     inputs:
       couple:
       checks:
