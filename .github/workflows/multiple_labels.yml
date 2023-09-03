@@ -5,14 +5,21 @@ on:
       couple:
       checks:
 
-enV: 
-  key: value
-  
 jobs:
-  test:
-    name: Test
-    runs-on: "ubuntu-latest"
-    
+  _:
+    strategy:
+      matrix:
+        os:
+        - ubuntu-20.04
+        - ubuntu-latest
+        include:
+        - os: ubuntu-latest # Only ubuntu-latest has an extra env var MYVAR
+          env:
+            MYVAR: myval
+            MYVAR2: myval2
+    env:
+      SOME_ENV: B
+      ${{ insert }}: ${{ matrix.env || fromjson('{}') }}
+    runs-on: ${{ matrix.os }}
     steps:
-      - run: |
-          echo "${{ env.key }}"
+    - run: env
