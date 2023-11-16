@@ -21,3 +21,5 @@ jobs:
     runs-on: ubuntu-latest 
     steps:
       - run: env
+      - run: echo "${{ format('{{Hello {0} {1} {2}}}', 'Mona', 'the', 'Octocat') }}"
+
