@@ -23,3 +23,5 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
     - run: env
+    - name: Hi from ${{ matrix.os }}
+      run: echo "hello ${{ env.myvar }}"
