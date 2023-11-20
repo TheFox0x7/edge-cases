@@ -20,6 +20,7 @@ jobs:
          exclude:
            - roman: IV
              arabic: 4
+           - roman: I
       
     runs-on: ubuntu-latest
 
