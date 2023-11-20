@@ -1,0 +1,28 @@
+# This is a basic workflow to help you get started with Actions
+
+name: benchmark
+
+# Controls when the workflow will run
+on:
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    strategy:
+       matrix:
+         greek: ["alpha", "beta", "gamma", "epsilon"]
+         arabic: [1,2,3,4]
+         roman: [I,II,III,IV]
+         direction: [up,down,left,right,middle]
+         exclude:
+           - roman: IV
+             arabic: 4
+      
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - run: echo "Some job"
