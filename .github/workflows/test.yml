@@ -12,7 +12,7 @@ jobs:
 
   
   env_test:
-    runs-on: ${{ needs.pre.what_do_i_need }}
+    runs-on: ${{ needs.pre.outputs.what_do_i_need }}
     needs: pre
     
     
