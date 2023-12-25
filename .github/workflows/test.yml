@@ -1,9 +1,5 @@
 on:
   workflow_dispatch:
-    inputs:
-      depends:
-        type: string
-
 
 jobs:
   pre:
@@ -11,13 +7,14 @@ jobs:
     outputs:
       what_do_i_need: ${{ steps.setup.outputs.what_do_i_need }}
     steps:
-      
-      - run: echo "what_do_i_need=pre" >> "$GITHUB_OUTPUT"
+      - run: echo "what_do_i_need=ubuntu-latest" >> "$GITHUB_OUTPUT"
         id: setup
 
   
   env_test:
-    runs-on: ubuntu-latest
-    needs: ${{ needs.pre.outputs.what_do_i_need }}
+    runs-on: ${{ needs.pre.what_do_i_need }}
+    needs: pre
+    
+    
     steps:
       - run: exit 0
