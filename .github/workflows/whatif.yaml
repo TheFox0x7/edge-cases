@@ -3,12 +3,12 @@ on: workflow_dispatch
 jobs:
   pre:
     outputs:
-      how_much: ${{ steps.setup.outputs.how_much }}
+      how_much: ${{ steps.pre.outputs.how_much }}
 
     runs-on: ubuntu-latest
 
     steps:
-      - id: how_much
+      - id: pre
         name: Test next on node 18,20 and 22
         run: echo "how_much=[18,20,22]">> "$GITHUB_OUTPUT"
 
