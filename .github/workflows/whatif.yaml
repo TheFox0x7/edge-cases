@@ -10,7 +10,7 @@ jobs:
     steps:
       - id: how_much
         name: Test next on node 18,20 and 22
-        run: echo "how_much={[18,20,22]}">> "$GITHUB_OUTPUT"
+        run: echo "how_much=[18,20,22]">> "$GITHUB_OUTPUT"
 
   post:
     needs: pre
