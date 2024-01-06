@@ -1,0 +1,8 @@
+on:
+  workflow_dispatch:
+
+jobs:
+  pre:
+    uses: TheFox0x7/edge-cases/.github/workflows/whatif.yaml@main
+    with:
+      misc: "a"
