@@ -1,0 +1,38 @@
+name: One fail, couple passes and 2x needs ?
+on:
+  workflow_dispatch:
+
+
+jobs:
+  # This workflow contains a single job called "build"
+  multiple:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        return: [0, 0, 0, 255]
+    env:
+      return: ${{ matrix.return }}
+    steps:
+      - run: exit $RETURN
+
+  one_failed:
+    needs: [multiple]
+    strategy:
+      matrix:
+        return: [0, 0] #why not try it?
+    runs-on: ubuntu-latest
+
+    steps:
+      - run: exit 0
+
+  previous_did_not_attempt:
+    needs: [multiple, one_failed]
+    strategy:
+      matrix:
+        return: [0, 0]
+    runs-on: ubuntu-latest
+
+    steps:
+      - run: exit 0
+    
