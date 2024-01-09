@@ -12,7 +12,7 @@ jobs:
       matrix:
         return: [0, 0, 0, 255]
     env:
-      return: ${{ matrix.return }}
+      RETURN: ${{ matrix.return }}
     steps:
       - run: exit $RETURN
 
