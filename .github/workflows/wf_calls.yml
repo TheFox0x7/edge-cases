@@ -1,0 +1,16 @@
+name: CI
+on:
+  workflow_dispatch:
+
+jobs:
+  call_a_workflow:
+    uses: TheFox0x7/edge-cases/.github/workflows/whatif.yaml@main
+    strategy:
+      matrix:
+        misc: ["a","b","c","d","e","f","g"]
+        ver: ["18","19","20"]
+        
+        
+    with:
+      misc: ${{ matrix.misc }}
+      version: ${{ matrix.ver }}
