@@ -5,6 +5,8 @@ on:
       misc:
         required: true
         type: string
+      version:
+        type: string
 
 jobs:
   pre:
