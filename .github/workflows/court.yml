@@ -1,0 +1,22 @@
+name: two face
+
+on:
+  workflow_dispatch:
+
+jobs:
+  can_you:
+    runs-on: ubuntu-latest
+
+    outputs:
+      time: ${{ steps.time.outputs.time }}
+    steps:
+      - id: time
+        run: echo "time=`date`" >> $GITHUB_OUTPUT
+
+  time:
+    needs: can_you
+    runs-on: ubuntu-latest
+    env:
+      TIME: ${{ needs.can_you.outputs.time }}
+    steps:
+      - run: echo $TIME
