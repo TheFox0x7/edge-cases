@@ -7,14 +7,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - run: date
       - run: exit 0
   post:
     runs-on: ubuntu-latest
     needs: pre
     steps:
+     - run: date
      - run: exit 0
 
   indep:
     runs-on: ubuntu-latest
     steps:
+      - run: date
       - run: exit 0
