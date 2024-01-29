@@ -1,3 +1,4 @@
+name: calls
 on:
   workflow_dispatch:
 
