@@ -1,4 +1,5 @@
 name: attempts
+run-name: ${{ github.actor }} is learning GitHub Actions
 on:
   workflow_dispatch:
 
