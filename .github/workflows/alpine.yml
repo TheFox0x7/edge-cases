@@ -14,8 +14,3 @@ jobs:
         uses: docker://alpine:latest
         with:
           args: echo "Running on Alpine container"
-
-      - name: Run on Alpine:${{ matrix.version }} container
-        uses: docker://alpine:${{ matrix.version }}
-        with:
-          args: echo "Running on Alpine:${{ matrix.version }} container"
