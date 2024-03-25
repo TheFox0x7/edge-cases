@@ -1,0 +1,20 @@
+name: Alpine Matrix Example
+
+on: [workflow_call]
+
+jobs:
+ build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        version: ['3.14', '3.15']
+    steps:
+      - name: Run on Alpine container
+        uses: docker://alpine:latest
+        with:
+          args: echo "Running on Alpine container"
+
+      - name: Run on Alpine:${{ matrix.version }} container
+        uses: docker://alpine:${{ matrix.version }}
+        with:
+          args: echo "Running on Alpine:${{ matrix.version }} container"
